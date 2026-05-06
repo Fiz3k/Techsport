@@ -19,3 +19,13 @@ DML (INSERT, SELECT, UPDATE) → para operaciones diarias como registrar compras
 
 DCL (GRANT, REVOKE) → para asignar roles específicos (ej. pagos, reportes) y limitar permisos según el principio de mínimo privilegio.
 
+4. Validación de transacciones con ACID
+El diagrama refleja que cada operación de pago se envuelve en una transacción SQL explícita (BEGIN...COMMIT / ROLLBACK). Esto garantiza:
+
+Atomicidad: si falla la pasarela de pagos, no se descuenta stock ni se confirma la orden.
+
+Consistencia: el inventario y el estado de la transacción siempre quedan en un estado válido.
+
+Aislamiento: dos compras simultáneas no interfieren entre sí.
+
+Durabilidad: una vez confirmado el pago, los datos persisten incluso ante caídas del sistema.
