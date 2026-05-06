@@ -10,3 +10,12 @@ Validaciones de entrada: verifica que los montos sean positivos, que los IDs exi
 
 Consultas parametrizadas (Prepared Statements): elimina por completo el riesgo de inyección SQL al separar los datos de las instrucciones SQL.
 
+3. Base de datos SQL con tres niveles de instrucciones
+El diagrama identifica explícitamente los tres tipos de instrucciones SQL necesarias:
+
+DDL (CREATE TABLE, ALTER, etc.) → para definir la estructura inicial de usuarios, productos, transacciones y sus relaciones.
+
+DML (INSERT, SELECT, UPDATE) → para operaciones diarias como registrar compras, consultar stock y actualizar estados de pago.
+
+DCL (GRANT, REVOKE) → para asignar roles específicos (ej. pagos, reportes) y limitar permisos según el principio de mínimo privilegio.
+
